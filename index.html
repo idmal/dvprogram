@@ -1,17 +1,744 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dvprogram.ir</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>لاتاری گرین کارت آمریکا | DV Program</title>
+  <meta name="description" content="جامعه فارسی‌زبان علاقه‌مندان لاتاری گرین کارت آمریکا؛ اخبار، آموزش، تجربه کاربران و اطلاع‌رسانی برنامه DV.">
+
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#111;color:#fff;font-family:Arial,sans-serif;text-align:center}.box{padding:40px}h1{font-size:clamp(2rem,7vw,5rem);font-weight:400;margin:0 0 16px}p{color:#aaa;font-size:1rem}
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --blue: #0b2a4a;
+      --blue2: #123f68;
+      --red: #d62828;
+      --gold: #f4b942;
+      --light: #f5f8fc;
+      --text: #172033;
+      --muted: #64748b;
+      --white: #fff;
+      --border: #e4eaf1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: rgba(11, 42, 74, .98);
+      color: white;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: #dbe7f3;
+    }
+
+    .nav-btn {
+      background: #229ed9;
+      padding: 9px 18px;
+      border-radius: 9px;
+      color: white !important;
+      font-weight: 700;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(244,185,66,.15), transparent 28%),
+        linear-gradient(135deg, #092542 0%, #123f68 60%, #0b2a4a 100%);
+      color: white;
+      padding: 82px 0 75px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "★";
+      position: absolute;
+      left: 5%;
+      top: 15%;
+      font-size: 180px;
+      color: rgba(255,255,255,.025);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 7px 15px;
+      border-radius: 100px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 57px);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: #d9e6f2;
+      font-size: 18px;
+      max-width: 690px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #229ed9;
+      color: white;
+      box-shadow: 0 8px 25px rgba(34,158,217,.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #168bc3;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.25);
+      color: white;
+      background: rgba(255,255,255,.06);
+    }
+
+    /* Notice */
+    .notice {
+      margin-top: -30px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .notice-box {
+      background: white;
+      border-radius: 15px;
+      padding: 22px 25px;
+      box-shadow: 0 12px 35px rgba(15,35,55,.1);
+      border-right: 5px solid var(--gold);
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .notice-icon {
+      font-size: 25px;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .notice p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-title h2 {
+      font-size: 31px;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 28px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(15,35,55,.08);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #edf5fc;
+      font-size: 24px;
+      margin-bottom: 17px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Telegram */
+    .telegram {
+      background: linear-gradient(135deg, #0b2a4a, #123f68);
+      color: white;
+      border-radius: 22px;
+      padding: 55px 45px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .telegram h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .telegram p {
+      color: #d6e5f2;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .telegram .btn {
+      background: #229ed9;
+      padding: 14px 30px;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    details p {
+      padding-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      background: #071c31;
+      color: #b8c8d8;
+      padding: 40px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      font-size: 13px;
+      color: #9fb2c5;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .official {
+      margin-top: 15px;
+      display: inline-block;
+      color: #70c9ee !important;
+    }
+
+    @media (max-width: 800px) {
+      .cards,
+      .steps,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav > div:first-child {
+        font-size: 20px;
+      }
+
+      .nav a:not(.nav-btn) {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .cards,
+      .steps,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .telegram {
+        padding: 40px 20px;
+      }
+
+      .notice-box {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main class="box">
-    <h1>dvprogram.ir</h1>
-    <p>به‌زودی</p>
-  </main>
+
+<header>
+  <div class="container nav">
+    <div class="logo">DV<span>Program</span>.ir</div>
+
+    <nav>
+      <a href="#about">درباره لاتاری</a>
+      &nbsp;&nbsp;
+      <a href="#guide">راهنما</a>
+      &nbsp;&nbsp;
+      <a href="#faq">سؤالات متداول</a>
+      &nbsp;&nbsp;
+      <a class="nav-btn" href="https://t.me/YOUR_GROUP" target="_blank">
+        عضویت در تلگرام
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="badge">
+          🇺🇸 جامعه فارسی‌زبان علاقه‌مندان لاتاری آمریکا
+        </div>
+
+        <h1>
+          دوباره کنار هم، برای مسیر
+          <span>گرین کارت آمریکا</span>
+        </h1>
+
+        <p>
+          اگر قبلاً همراه جامعه DVProgram بودید، اینجا نقطه شروع دوباره ماست.
+          اخبار، آموزش‌ها، تجربه کاربران و اطلاع‌رسانی‌های مهم برنامه لاتاری
+          گرین کارت آمریکا را در کنار هم دنبال کنیم.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary"
+             href="https://t.me/YOUR_GROUP"
+             target="_blank">
+            ✈️ ورود به گروه تلگرام
+          </a>
+
+          <a class="btn btn-secondary" href="#guide">
+            مشاهده راهنمای DV
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container notice">
+    <div class="notice-box">
+      <div class="notice-icon">⚠️</div>
+
+      <div>
+        <strong>اطلاعیه مهم</strong>
+        <p>
+          DVProgram.ir یک وب‌سایت مستقل و غیررسمی است و وابسته به دولت آمریکا
+          یا وزارت امور خارجه ایالات متحده نیست. برای اطلاعات و ثبت‌نام،
+          همیشه منابع رسمی دولت آمریکا را بررسی کنید.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>اینجا چه چیزی پیدا می‌کنید؟</h2>
+        <p>
+          هدف ما ایجاد دوباره یک جامعه فعال برای علاقه‌مندان برنامه Diversity Visa است.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">📰</div>
+          <h3>اخبار و اطلاع‌رسانی</h3>
+          <p>
+            اطلاع‌رسانی درباره تغییرات و اخبار مرتبط با برنامه DV و روند مهاجرت.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>آموزش و تجربه</h3>
+          <p>
+            راهنماها و تجربه‌های کاربران درباره مراحل مختلف مسیر لاتاری.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">👥</div>
+          <h3>جامعه کاربران</h3>
+          <p>
+            ارتباط با سایر فارسی‌زبانانی که در مسیر لاتاری و مهاجرت به آمریکا هستند.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="guide" style="background:#edf3f8;">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>مسیر کلی برنامه DV</h2>
+        <p>
+          جزئیات هر دوره ممکن است تغییر کند؛ همیشه دستورالعمل رسمی همان دوره را بررسی کنید.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="number">۱</div>
+          <h3>مطالعه دستورالعمل</h3>
+          <p>
+            قبل از هر اقدامی، دستورالعمل رسمی برنامه را مطالعه کنید.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">۲</div>
+          <h3>ثبت Entry</h3>
+          <p>
+            ثبت درخواست فقط در بازه زمانی اعلام‌شده و از سامانه رسمی انجام می‌شود.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">۳</div>
+          <h3>نگهداری Confirmation</h3>
+          <p>
+            شماره تأیید ثبت‌نام خود را نزد خود نگه دارید و در اختیار دیگران قرار ندهید.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">۴</div>
+          <h3>بررسی نتیجه</h3>
+          <p>
+            نتیجه و دستورالعمل‌های بعدی را از Entrant Status Check رسمی بررسی کنید.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container">
+
+      <div class="telegram">
+
+        <div style="font-size:45px; margin-bottom:8px;">✈️</div>
+
+        <h2>جامعه DVProgram دوباره شروع شد</h2>
+
+        <p>
+          اگر سال‌ها قبل همراه ما بودید یا تازه وارد مسیر لاتاری شده‌اید،
+          به گروه تلگرام بپیوندید تا جامعه را دوباره کنار هم بسازیم.
+        </p>
+
+        <a class="btn" href="https://t.me/YOUR_GROUP" target="_blank">
+          عضویت در گروه تلگرام
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="faq" style="background:#f0f4f8;">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>سؤالات متداول</h2>
+      </div>
+
+      <div class="faq">
+
+        <details>
+          <summary>آیا DVProgram.ir سایت رسمی لاتاری آمریکاست؟</summary>
+          <p>
+            خیر. این وب‌سایت یک جامعه و منبع مستقل فارسی‌زبان است و وابستگی
+            رسمی به دولت آمریکا ندارد.
+          </p>
+        </details>
+
+        <details>
+          <summary>ثبت‌نام لاتاری هزینه دارد؟</summary>
+          <p>
+            ثبت Entry در برنامه DV طبق اطلاعات رسمی وزارت خارجه آمریکا
+            هزینه‌ای برای ثبت اولیه ندارد.
+          </p>
+        </details>
+
+        <details>
+          <summary>نتیجه لاتاری را از کجا بررسی کنیم؟</summary>
+          <p>
+            نتیجه باید از طریق Entrant Status Check در سامانه رسمی E-DV
+            بررسی شود. به پیام‌ها یا ایمیل‌های غیررسمی به‌عنوان اعلام نتیجه
+            اعتماد نکنید.
+          </p>
+        </details>
+
+        <details>
+          <summary>آیا عضویت در گروه تلگرام ضروری است؟</summary>
+          <p>
+            خیر. گروه صرفاً برای ارتباط جامعه، تبادل تجربه و اطلاع‌رسانی است.
+            مراحل رسمی برنامه را همیشه از منابع دولتی آمریکا بررسی کنید.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>DVProgram.ir</h3>
+        <p>
+          جامعه فارسی‌زبان علاقه‌مندان لاتاری گرین کارت آمریکا.
+        </p>
+      </div>
+
+      <div>
+        <h3>دسترسی سریع</h3>
+        <p>
+          <a href="#about">درباره ما</a>
+        </p>
+        <p>
+          <a href="#guide">راهنمای DV</a>
+        </p>
+        <p>
+          <a href="#faq">سؤالات متداول</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>منبع رسمی</h3>
+        <p>
+          اطلاعات رسمی برنامه DV را از وب‌سایت وزارت خارجه آمریکا بررسی کنید.
+        </p>
+
+        <a
+          class="official"
+          href="https://travel.state.gov/content/travel/en/us-visas/immigrate/diversity-visa-program-entry.html"
+          target="_blank"
+          rel="noopener"
+        >
+          مشاهده اطلاعات رسمی →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 DVProgram.ir — All rights reserved.
+      <br>
+      این وب‌سایت مستقل از دولت ایالات متحده آمریکا است.
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
